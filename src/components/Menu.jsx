@@ -56,6 +56,7 @@ const Hr = styled.hr`
 `;
 
 const Login = styled.div``;
+
 const Button = styled.button`
   padding: 5px 15px;
   background-color: transparent;
@@ -67,70 +68,101 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-top: 5px;
+  margin-top: 10px;
 `;
 
 const MenuItems = [
   {
+    id: 1,
     text: "Home",
     icon: () => <HomeIcon></HomeIcon>,
   },
   {
+    id: 2,
     text: "Explore",
     icon: () => <ExploreIcon></ExploreIcon>,
   },
   {
+    id: 3,
     text: "Subscriptions",
     icon: () => <SubscriptionsIcon></SubscriptionsIcon>,
     addSeparator: true,
   },
   {
+    id: 4,
     text: "Library",
     icon: () => <VideoLibraryIcon></VideoLibraryIcon>,
   },
   {
+    id: 5,
     text: "History",
     icon: () => <HistoryIcon></HistoryIcon>,
     addSeparator: true,
   },
   {
+    id: 6,
+    icon: () => (
+      <>
+        <Login>
+          Sign-in to like videos, comment, and subscribe.
+          <Button>
+            <AccountBoxIcon></AccountBoxIcon>SIGN IN
+          </Button>
+        </Login>
+        <Hr></Hr>
+      </>
+    ),
+    addSeparator: true,
+  },
+
+  {
+    id: 7,
     text: "Music",
     icon: () => <LibraryMusicIcon></LibraryMusicIcon>,
   },
   {
+    id: 8,
     text: "Sports",
     icon: () => <SportsBasketballIcon></SportsBasketballIcon>,
   },
   {
+    id: 9,
     text: "Gaming",
     icon: () => <SportsEsportsIcon></SportsEsportsIcon>,
   },
   {
+    id: 10,
     text: "Movies",
     icon: () => <MovieIcon></MovieIcon>,
   },
   {
+    id: 11,
     text: "News",
     icon: () => <ArticleIcon></ArticleIcon>,
   },
   {
+    id: 12,
     text: "Live TV",
     icon: () => <LiveTvIcon></LiveTvIcon>,
     addSeparator: true,
   },
   {
+    id: 13,
     text: "Settings",
     icon: () => <SettingsIcon></SettingsIcon>,
   },
   {
+    id: 14,
     text: "Report",
     icon: () => <FlagIcon></FlagIcon>,
   },
   {
+    id: 15,
     text: "Help",
     icon: () => <HelpIcon></HelpIcon>,
   },
   {
+    id: 16,
     text: "Light Mode",
     icon: () => <LightModeIcon></LightModeIcon>,
   },
@@ -145,23 +177,12 @@ export default function Menu() {
           Video App
         </Logo>
         {MenuItems.map((item) => (
-          <div key={item.text}>
+          <div key={item.id}>
             <Item>
               {item.icon()}
               {item.text}
             </Item>
             {item.addSeparator ? <Hr></Hr> : null}
-            {item.text === "History" ? (
-              <>
-                <Login>
-                  Sign-in to like videos, comment, and subscribe.
-                  <Button>
-                    <AccountBoxIcon></AccountBoxIcon>SIGN IN
-                  </Button>
-                </Login>
-                <Hr></Hr>
-              </>
-            ) : null}
           </div>
         ))}
       </Wrapper>
