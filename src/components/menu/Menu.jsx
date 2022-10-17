@@ -20,9 +20,9 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 
 const Container = styled.div`
   flex: 1;
-  background-color: #202020;
+  background-color: ${({ theme }) => theme.bg};
   height: 100vh;
-  color: white;
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
   position: sticky;
   top: 0;
@@ -55,7 +55,7 @@ const MenuItem = styled.div`
 
 const Divider = styled.hr`
   margin: 10px 0px;
-  border: solid 0.5px #373737;
+  border: solid 0.5px ${({ theme }) => theme.soft};
 `;
 
 const LoginContainer = styled.div``;
@@ -74,7 +74,14 @@ const LoginButton = styled.button`
   gap: 10px;
 `;
 
-function Menu() {
+const Title = styled.h2`
+  font-size: 14px;
+  font-weight: 500;
+  color: #aaaaaa;
+  margin-bottom: 20px;
+`;
+
+function Menu({ darkMode, setDarkMode }) {
   return (
     <Container>
       <Wrapper>
@@ -112,6 +119,7 @@ function Menu() {
           </LoginButton>
         </LoginContainer>
         <Divider></Divider>
+        <Title>BEST OF FooqTube</Title>
         <MenuItem>
           <LibraryMusicOutlinedIcon></LibraryMusicOutlinedIcon>
           Music
@@ -149,7 +157,7 @@ function Menu() {
           <HelpOutlineOutlinedIcon></HelpOutlineOutlinedIcon>
           Help
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={() => setDarkMode((v) => (v = !v))}>
           <LightModeOutlinedIcon></LightModeOutlinedIcon>
           Light Mode
         </MenuItem>
